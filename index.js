@@ -23,8 +23,7 @@ app.post("/api/auth/login", async (req, res) => {
   if (!username || !password) {
     return res.status(400).json({ error: "Username and password required" });
   }
-
-  // Test 9 : Utilisateur inexistant -> 401
+  
   const user = findByUsername(username);
   if (!user) {
     return res.status(401).json({ error: "Invalid credentials" });
